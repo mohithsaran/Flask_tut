@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask,redirect,url_for
 
 #Flask constructor takes the name of current module
 app=Flask(__name__)
@@ -13,6 +13,10 @@ def home():
 @app.route('/hello/<name>')
 def user(name):
     return f"Hello {name}"
+
+@app.route('/admin')
+def admin():
+    return redirect(url_for('user',name='Admin')) 
 
 #main driver function
 if __name__=="__main__":
