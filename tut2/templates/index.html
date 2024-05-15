@@ -10,11 +10,9 @@
     <p>Hello</p>
     <p>{{content}}</p>
     <p>{{row}}</p>
-
-    {% for x in range(10) %}
-        {% if x%2==1 %}
-            <p>x</p>
-        {% endif %}
+    <p>Expression statements</p>
+    {% for x in content %}
+            <p>{{x}}</p>
     {% endfor %}
 </body>
 </html>

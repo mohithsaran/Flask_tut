@@ -8,7 +8,7 @@ app=Flask(__name__)
 #Default - GET request
 @app.route("/<name>")
 def home(name):
-    return  render_template('index.html',content=name,row=2)
+    return  render_template('index.html',content=['Mohith','Saran','Latha','Narasimha','Rao'],row=2)
 
 if __name__=="__main__":
     app.run()
