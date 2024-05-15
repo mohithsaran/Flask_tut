@@ -10,6 +10,9 @@ app=Flask(__name__)
 def home():
     return "Hello World <h1>Hello</h1>"
 
+@app.route('/hello/<name>')
+def user(name):
+    return f"Hello {name}"
 
 #main driver function
 if __name__=="__main__":
