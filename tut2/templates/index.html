@@ -11,6 +11,10 @@
     <p>{{content}}</p>
     <p>{{row}}</p>
 
-    
+    {% for x in range(10) %}
+        {% if x%2==1 %}
+            <p>x</p>
+        {% endif %}
+    {% endfor %}
 </body>
 </html>
