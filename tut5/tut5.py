@@ -15,7 +15,9 @@ def login():
         # assigning user to session dictionary
         session['user']=user 
         return redirect(url_for('user',user=user))
-    else:    
+    else:   
+        if "user" in session:
+            return redirect(url_for("user",user=session['user'])) 
         return render_template("login.html")
 
 @app.route("/<user>")
@@ -27,6 +29,11 @@ def user(user):
     else:
         # if session is completed then redirect to login
         return redirect(url_for('login'))
+
+@app.route('/logout')    
+def logout():
+    session.pop('user',None)
+    return redirect(url_for('login'))
 
 if __name__=="__main__":
     app.run(debug=True)
