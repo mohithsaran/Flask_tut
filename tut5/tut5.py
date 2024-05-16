@@ -1,8 +1,10 @@
 from flask import Flask,render_template,request,url_for,redirect,session
+from datetime import timedelta
 
 app=Flask(__name__)
 #setting a secret key
 app.secret_key="hello"
+app.permanent_session_lifetime=timedelta(minutes=2)
 
 @app.route("/")
 def home():
@@ -11,6 +13,7 @@ def home():
 @app.route("/login",methods=['GET','POST'])
 def login():
     if request.method == 'POST':
+        session.permanent=True
         user=request.form['name']
         # assigning user to session dictionary
         session['user']=user 
